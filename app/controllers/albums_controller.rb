@@ -12,6 +12,7 @@ class AlbumsController < ApplicationController
         # else
         #     render json: {error: "album not saved successfully" }
         # end
+        # byebug
         album = Album.create(album_params)
         render json: album
     end
@@ -26,7 +27,7 @@ class AlbumsController < ApplicationController
     private
 
     def album_params
-        params.require(:album).permit(:name, :artist, :genre, :image, :description)
+        params.require(:album).permit(:name, :artist, :genre, :image, :description, :user_id)
         # byebug
         # params.permit(:name, :artist, :genre, :image, :description)
     end
